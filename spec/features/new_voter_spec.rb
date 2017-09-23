@@ -8,11 +8,12 @@ RSpec.feature 'New voter' do
       expect(page).to have_content Voter.first.uuid
     end
   end
+
   context 'when visting a second time' do
     it 'does not create a new voter record and uses the old one' do
       expect { visit '/' }.to change { Voter.count }.by(1)
       expect(page).to have_content Voter.first.uuid
-      expect { visit '/' }.not_to change { Voter.count }.by(1)
+      expect { visit '/' }.not_to change { Voter.count }
       expect(page).to have_content Voter.first.uuid
     end
   end
