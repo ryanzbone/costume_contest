@@ -1,1 +1,6 @@
 = current_voter.uuid
+- if @entry
+  %h1#entry-name= @entry.name
+
+  = button_to 'Up Vote', action: 'up_vote', entry_id: @entry.id
+  = button_to 'Down Vote', action: 'down_vote', entry_id: @entry.id

@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.feature 'New voter' do
 
+  before do
+    create :entry
+  end
+
   context 'when visiting for the first time' do
     it 'creates a new voter record' do
       expect { visit '/' }.to change { Voter.count }.by(1)
