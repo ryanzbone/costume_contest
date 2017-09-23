@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170923142735) do
+ActiveRecord::Schema.define(version: 20170923150816) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -18,34 +21,17 @@ ActiveRecord::Schema.define(version: 20170923142735) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "down_votes", force: :cascade do |t|
-    t.integer "entry_id"
-    t.integer "voter_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["entry_id"], name: "index_down_votes_on_entry_id"
-    t.index ["voter_id"], name: "index_down_votes_on_voter_id"
-  end
-
   create_table "entries", force: :cascade do |t|
     t.string "contact_info"
-    t.integer "category_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture_file_name"
     t.string "picture_content_type"
     t.integer "picture_file_size"
     t.datetime "picture_updated_at"
+    t.string "name"
     t.index ["category_id"], name: "index_entries_on_category_id"
-  end
-
-  create_table "up_votes", force: :cascade do |t|
-    t.integer "entry_id"
-    t.integer "voter_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["entry_id"], name: "index_up_votes_on_entry_id"
-    t.index ["voter_id"], name: "index_up_votes_on_voter_id"
   end
 
   create_table "voters", force: :cascade do |t|
@@ -54,4 +40,17 @@ ActiveRecord::Schema.define(version: 20170923142735) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.bigint "entry_id"
+    t.bigint "voter_id"
+    t.boolean "up_vote", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["entry_id"], name: "index_votes_on_entry_id"
+    t.index ["voter_id"], name: "index_votes_on_voter_id"
+  end
+
+  add_foreign_key "entries", "categories"
+  add_foreign_key "votes", "entries"
+  add_foreign_key "votes", "voters"
 end
