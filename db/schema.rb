@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170921014632) do
+ActiveRecord::Schema.define(version: 20170923142735) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "down_votes", force: :cascade do |t|
+    t.integer "entry_id"
+    t.integer "voter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["entry_id"], name: "index_down_votes_on_entry_id"
+    t.index ["voter_id"], name: "index_down_votes_on_voter_id"
   end
 
   create_table "entries", force: :cascade do |t|
@@ -30,19 +39,19 @@ ActiveRecord::Schema.define(version: 20170921014632) do
     t.index ["category_id"], name: "index_entries_on_category_id"
   end
 
-  create_table "voters", force: :cascade do |t|
-    t.string "uuid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "votes", force: :cascade do |t|
+  create_table "up_votes", force: :cascade do |t|
     t.integer "entry_id"
     t.integer "voter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["entry_id"], name: "index_votes_on_entry_id"
-    t.index ["voter_id"], name: "index_votes_on_voter_id"
+    t.index ["entry_id"], name: "index_up_votes_on_entry_id"
+    t.index ["voter_id"], name: "index_up_votes_on_voter_id"
+  end
+
+  create_table "voters", force: :cascade do |t|
+    t.string "uuid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
