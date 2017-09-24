@@ -14,10 +14,18 @@ class VotingController < ApplicationController
     if vote.save
       redirect_to root_path
     else
+      @entry = Entry.find params[:entry_id]
+      render :index
     end
   end
 
   def down_vote
-    redirect_to root_path
+    vote = Vote.new(up_vote: false, entry_id: params[:entry_id], voter: current_voter)
+    if vote.save
+      redirect_to root_path
+    else
+      @entry = Entry.find params[:entry_id]
+      render :index
+    end
   end
 end
