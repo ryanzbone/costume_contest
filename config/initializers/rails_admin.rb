@@ -50,10 +50,8 @@ RailsAdmin.config do |config|
       field :name
       field :contact_info
       field :category
-      field :up_vote_count
-      field :down_vote_count
-      field :total_vote_count
-      field :picture
+      field :vote_summary
+      field :picture, :paperclip
     end
   end
 end

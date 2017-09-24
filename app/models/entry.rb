@@ -4,6 +4,10 @@ class Entry < ApplicationRecord
   belongs_to :category
   has_many :votes
 
+  def vote_summary
+    "#{total_vote_count} (+#{up_vote_count}/-#{down_vote_count})"
+  end
+
   def total_vote_count
     up_vote_count - down_vote_count
   end
