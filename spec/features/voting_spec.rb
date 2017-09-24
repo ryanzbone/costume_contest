@@ -18,6 +18,8 @@ RSpec.feature 'voting order' do
       click_button "Up Vote"
     end
 
+    expect(page).to have_content 'Check back later for more entries'
+
     entry_view_counts.each do |_, v|
       expect(v).to eq(1)
     end
