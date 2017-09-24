@@ -38,6 +38,7 @@ gem "paperclip"
 gem "haml-rails"
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'jquery-rails'
+gem 'aws-sdk'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -48,6 +49,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'pry-byebug'
+  gem 'dotenv-rails'
 end
 
 group :development do
