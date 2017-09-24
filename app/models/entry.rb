@@ -1,5 +1,6 @@
 class Entry < ApplicationRecord
   has_attached_file :picture
+  validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
   belongs_to :category
   has_many :votes
 
