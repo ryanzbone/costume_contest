@@ -4,6 +4,10 @@ class Entry < ApplicationRecord
   belongs_to :category
   has_many :votes
 
+  def total_vote_count
+    up_vote_count - down_vote_count
+  end
+
   def up_vote_count
     votes.where(up_vote: true).count
   end

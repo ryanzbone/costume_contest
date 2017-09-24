@@ -44,4 +44,16 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.model 'Entry' do
+    list do
+      field :name
+      field :contact_info
+      field :category
+      field :up_vote_count
+      field :down_vote_count
+      field :total_vote_count
+      field :picture
+    end
+  end
 end
