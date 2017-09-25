@@ -13,4 +13,5 @@
       = form_with url: costume_up_vote_path(@entry.id), local: true do |form|
         = form.submit 'Up vote', class: 'btn btn-success btn-block mb-2'
 - else
-  = "Check back later for more entries, or #{link_to('go vote on houses', houses_path)}!".html_safe
+  .alert.alert-primary{:role => "alert"}
+    = "You've voted on all the costumes, now #{link_to('check out the houses', houses_path)}!".html_safe

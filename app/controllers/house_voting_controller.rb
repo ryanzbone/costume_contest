@@ -1,8 +1,11 @@
 class HouseVotingController < ApplicationController
   def index
-    house_ids = Entry.where(category: Category.house).pluck(:id)
+    costume_ids = Entry.where.not(category: Category.house).pluck(:id)
     vote_ids = Vote.where(voter: current_voter).pluck(:entry_id)
-    if house_ids.length != vote_ids.length
+    house_ids = Entry.where(category: Category.house).pluck(:id)
+    existing_house_votes = vote_ids - costume_ids
+
+    if house_ids.length != existing_house_votes.length
       @entry = Entry.find((house_ids - vote_ids).sample)
     else
       @entry = nil
