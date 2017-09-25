@@ -1,0 +1,16 @@
+%h1 House Voting
+- if @entry
+  .row
+    .col
+      .invisible= current_voter.uuid
+      %h2#entry-name= @entry.name
+      = image_tag @entry.picture.url, class: 'img-fluid mb-3'
+  .row
+    .col-6
+      = form_with url: house_down_vote_path(@entry.id), local: true do |form|
+        = form.submit 'Down vote', class: 'btn btn-success btn-block'
+    .col-6
+      = form_with url: house_up_vote_path(@entry.id), local: true do |form|
+        = form.submit 'Up vote', class: 'btn btn-success btn-block mb-2'
+- else
+  = "Check back later for more entries, or #{link_to('go vote on costumes', root_path)}!".html_safe
