@@ -8,10 +8,12 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{:href => "https://fonts.googleapis.com/css?family=Cinzel|Libre+Baskerville:400i", :rel => "stylesheet"}/
+
   %body
     .container
-      %nav.navbar.navbar-expand-xs.navbar-dark.bg-dark
-        %a.navbar-brand.gray{:href => "#"} GV Monster Bash
+      %nav.navbar.navbar-expand-xs.navbar-dark.bg-dark.mb-1
+        %a.navbar-brand.gray.title{:href => "#"} GV Monster Bash
         %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
           %span.navbar-toggler-icon
         #navbarSupportedContent.collapse.navbar-collapse
