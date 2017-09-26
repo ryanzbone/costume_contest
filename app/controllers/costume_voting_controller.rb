@@ -1,12 +1,13 @@
 class CostumeVotingController < ApplicationController
   def index
-    costume_ids = Entry.where.not(category: Category.house).pluck(:id)
+    @costume_ids = Entry.where.not(category: Category.house).pluck(:id)
     vote_ids = Vote.where(voter: current_voter).pluck(:entry_id)
     house_ids = Entry.where(category: Category.house).pluck(:id)
-    existing_costume_votes = vote_ids - house_ids
+    @existing_costume_votes = vote_ids - house_ids
+    @progress = (@existing_costume_votes.count.to_f / @costume_ids.count.to_f) * 100
 
-    if costume_ids.length != existing_costume_votes.length
-      @entry = Entry.find((costume_ids - vote_ids).sample)
+    if @costume_ids.length != @existing_costume_votes.length
+      @entry = Entry.find((@costume_ids - vote_ids).sample)
     else
       @entry = nil
     end
