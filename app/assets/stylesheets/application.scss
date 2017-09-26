@@ -17,6 +17,11 @@ $body-bg: #5a5d61;
 
 .invisible { display: none; }
 .bg-orange { background: $orange; }
+.btn-orange {
+  color: #fff;
+  background-color: $orange;
+  border-color: $orange;
+}
 
 .gray { color: #eee !important; }
 .progress {
