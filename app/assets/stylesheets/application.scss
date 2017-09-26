@@ -11,6 +11,14 @@
  * It is generally better to create a new file per style scope.
  *
  */
+$body-bg: #5a5d61;
+
 @import "bootstrap";
 
 .invisible { display: none; }
+.bg-orange { background: $orange; }
+
+.gray { color: #eee !important; }
+.progress {
+  background-color: #a2a2a2;
+}
