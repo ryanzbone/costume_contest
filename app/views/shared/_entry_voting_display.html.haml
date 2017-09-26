@@ -1,0 +1,12 @@
+.row
+  .col
+    .invisible= current_voter.uuid
+    %h2.gray#entry-name= entry.name
+    = image_tag entry.picture.url, class: 'img-fluid mb-3'
+.row
+  .col-6
+    = form_with url: down_vote_path, local: true do |form|
+      = form.submit 'Down vote', class: 'btn btn-orange btn-block'
+  .col-6
+    = form_with url: up_vote_path, local: true do |form|
+      = form.submit 'Up vote', class: 'btn btn-orange btn-block mb-2'

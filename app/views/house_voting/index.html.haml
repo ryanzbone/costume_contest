@@ -1,22 +1,9 @@
 %h1.gray House Voting
 
-.progress.mb-3
-  .progress-bar.bg-orange{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => @progress, :role => "progressbar", :style => "width: #{@progress}%;"}= "#{@existing_house_votes.count} / #{@house_ids.count}"
-
+= render partial: 'shared/progress', locals: { progress: @progress, existing_vote_count: @existing_house_votes.count, total_vote_count: @house_ids.count }
 
 - if @entry
-  .row
-    .col
-      .invisible= current_voter.uuid
-      %h2.gray#entry-name= @entry.name
-      = image_tag @entry.picture.url, class: 'img-fluid mb-3'
-  .row
-    .col-6
-      = form_with url: house_down_vote_path(@entry.id), local: true do |form|
-        = form.submit 'Down vote', class: 'btn btn-success btn-block'
-    .col-6
-      = form_with url: house_up_vote_path(@entry.id), local: true do |form|
-        = form.submit 'Up vote', class: 'btn btn-success btn-block mb-2'
+  = render partial: 'shared/entry_voting_display', locals: { up_vote_path: house_up_vote_path(@entry.id), down_vote_path: house_down_vote_path(@entry.id), entry: @entry }
 - else
   .alert.alert-primary{:role => "alert"}
     = "You've voted on all the houses, now #{link_to('check out the costumes', root_path)}!".html_safe
