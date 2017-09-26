@@ -5,5 +5,5 @@
 - if @entry
   = render partial: 'shared/entry_voting_display', locals: { up_vote_path: costume_up_vote_path(@entry.id), down_vote_path: costume_down_vote_path(@entry.id), entry: @entry }
 - else
-  .alert.alert-primary{:role => "alert"}
-    = "You've voted on all the costumes, now #{link_to('check out the houses', houses_path)}!".html_safe
+  .alert.alert-dark{:role => "alert"}
+    = "You've voted on all the costumes, now #{link_to('check out the houses', houses_path, class: 'alert-link')}!".html_safe
