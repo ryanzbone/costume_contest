@@ -18,13 +18,16 @@
           %span.navbar-toggler-icon
         #navbarSupportedContent.collapse.navbar-collapse
           %ul.navbar-nav.mr-auto
-            %li.nav-item
-              %a.nav-link{:href => root_path} Contest Rules
+            %li.nav-item.gray
+              %a.nav-link{:href => root_path}
+                = fa_icon 'list', text: 'Contest Rules', class: 'nav-link-icon'
             - if FeatureFlag.voting.enabled?
               %li.nav-item
-                %a.nav-link{:href => costumes_path} Costume Voting
+                %a.nav-link{:href => costumes_path}
+                  = fa_icon 'user-secret', text: 'Costume Voting', class: 'nav-link-icon'
               %li.nav-item
-                %a.nav-link{:href => houses_path} House Voting
+                %a.nav-link{:href => houses_path}
+                  = fa_icon 'home', text: 'House Voting', class: 'nav-link-icon'
 
     .container
       = yield
