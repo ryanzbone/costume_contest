@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'costume_voting#index'
+  root 'home#index'
+  get 'costumes', to: 'costume_voting#index'
   get 'houses', to: 'house_voting#index'
 
   post 'costume_up_vote/:entry_id', to: 'costume_voting#up_vote', as: 'costume_up_vote'
