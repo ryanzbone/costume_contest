@@ -14,6 +14,7 @@
 $body-bg: #5a5d61;
 
 @import "bootstrap";
+@import "font-awesome";
 
 .invisible { display: none; }
 .bg-orange { background: $orange; }
@@ -39,3 +40,4 @@ h3 { font-size: 1.2rem; }
   font-family: 'Libre Baskerville', serif;
   color: #eee;
 }
+.nav-link-icon { color: #868e96; }
