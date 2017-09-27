@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
       cookies.permanent[:voter_uuid] = uuid
     end
   end
+
+  def require_voting_enabled
+    redirect_to root_path unless FeatureFlag.voting.enabled
+  end
 end

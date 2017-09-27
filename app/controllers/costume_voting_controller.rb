@@ -1,4 +1,6 @@
 class CostumeVotingController < ApplicationController
+  before_action :require_voting_enabled
+
   def index
     @costume_ids = Entry.where.not(category: Category.house).pluck(:id)
     vote_ids = Vote.where(voter: current_voter).pluck(:entry_id)
