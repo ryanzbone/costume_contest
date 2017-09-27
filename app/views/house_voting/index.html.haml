@@ -6,4 +6,4 @@
   = render partial: 'shared/entry_voting_display', locals: { up_vote_path: house_up_vote_path(@entry.id), down_vote_path: house_down_vote_path(@entry.id), entry: @entry }
 - else
   .alert.alert-dark{:role => "alert"}
-    = "You've voted on all the houses, now #{link_to('check out the costumes', root_path, class: 'alert-link')}!".html_safe
+    = "You've voted on all the houses, now #{link_to('check out the costumes', costumes_path, class: 'alert-link')}!".html_safe
