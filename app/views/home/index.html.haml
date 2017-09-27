@@ -1,5 +1,6 @@
 - if FeatureFlag.voting.enabled?
-  = link_to 'Start Voting!', houses_path, class: 'btn btn-orange btn-block mb-3'
+  = link_to houses_path, class: 'btn btn-orange btn-block mb-3' do
+    = fa_icon 'check-square-o', text: 'Start Voting!'
 
 %h1.title Costume Contest Rules
 %h2.title.mt-3 Timeline
