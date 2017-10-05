@@ -28,16 +28,31 @@ $body-bg: #5a5d61;
   background-color: #a2a2a2;
 }
 
-.title {
-  font-family: 'Cinzel', black;
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  font-family: 'Cinzel', bold;
   font-style: normal;
 }
-h1 { font-size: 2.1rem; }
-h2 { font-size: 1.6rem; }
-h3 { font-size: 1.2rem; }
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: 'Cinzel', bold;
+  font-style: normal;
+}
+h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+  font-family: 'Cinzel', bold;
+  font-style: normal;
+}
+p {
+  line-height: 1.6rem;
+  margin-bottom: 2rem;
+}
 
 * {
-  font-family: 'Libre Baskerville', serif;
+  font-family: 'Open Sans', sans-serif;
   color: #eee;
 }
 .nav-link-icon { color: #868e96; }
