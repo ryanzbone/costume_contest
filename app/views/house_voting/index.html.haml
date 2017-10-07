@@ -4,6 +4,9 @@
 
 - if @entry
   = render partial: 'shared/entry_voting_display', locals: { up_vote_path: house_up_vote_path(@entry.id), down_vote_path: house_down_vote_path(@entry.id), entry: @entry }
+- elsif @voting_complete
+  .alert.alert-orange{:role => "alert"}
+    You've finished voting, so go have some fun at the party! Results will be announced at 10:30PM in the Fest Hall.
 - else
   .alert.alert-dark{:role => "alert"}
     = "You've voted on all the houses, now #{link_to('check out the costumes', costumes_path, class: 'alert-link')}!".html_safe

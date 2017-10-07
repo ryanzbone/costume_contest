@@ -7,6 +7,7 @@ class CostumeVotingController < ApplicationController
     house_ids = Entry.where(category: Category.house).pluck(:id)
     @existing_costume_votes = vote_ids - house_ids
     @progress = (@existing_costume_votes.count.to_f / @costume_ids.count.to_f) * 100
+    @voting_complete = vote_ids.count == (house_ids.count + @costume_ids.count)
 
     if @costume_ids.length != @existing_costume_votes.length
       @entry = Entry.find((@costume_ids - vote_ids).sample)
