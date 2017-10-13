@@ -2,9 +2,6 @@ class CostumeVotingController < ApplicationController
   before_action :require_voting_enabled
 
   def index
-    house_id = Category.house.id
-    houses, costumes = Entry.all.partition{ |e| e.category_id == house_id }
-
     @costume_ids = Entry.where.not(category: Category.house).pluck(:id)
     vote_ids = Vote.where(voter: current_voter).pluck(:entry_id)
     house_ids = Entry.where(category: Category.house).pluck(:id)
