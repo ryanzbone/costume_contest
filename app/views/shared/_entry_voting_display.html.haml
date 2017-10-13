@@ -2,6 +2,8 @@
   .col
     .invisible= current_voter.uuid
     %h2.gray.title#entry-name= entry.name
+    - if entry.category != Category.house
+      %h3.gray.title#entry-name= entry.category_name
     = image_tag entry.picture.url, class: 'img-fluid mb-3'
 .row
   .col-6

@@ -1,6 +1,8 @@
 class Entry < ApplicationRecord
   has_attached_file :picture
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
+
+  delegate :name, to: :category, prefix: true
   belongs_to :category
   has_many :votes
 
