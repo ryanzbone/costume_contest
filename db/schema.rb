@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927002627) do
+ActiveRecord::Schema.define(version: 20171013195612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 20170927002627) do
     t.integer "picture_file_size"
     t.datetime "picture_updated_at"
     t.string "name"
+    t.integer "up_votes", default: 0
+    t.integer "down_votes", default: 0
+    t.integer "net_votes", default: 0
     t.index ["category_id"], name: "index_entries_on_category_id"
   end
 
