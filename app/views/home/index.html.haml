@@ -2,7 +2,7 @@
   = link_to houses_path, class: 'btn btn-orange btn-block mb-3' do
     = fa_icon 'check-square-o', text: 'Start Voting!'
 
-%h1.mb-3 The Rules
+%h1.mb-3 Constume Contest
 
 .timeline.mt-3.mb-5
   %h2 Timeline
@@ -12,7 +12,7 @@
 
   %h3 8:30 p.m. – 10 p.m.
   %p Voting on the website
-  %h3 10:15 p.m.
+  %h3 10:30 p.m.
   %p Winners announced in Fest Hall
 
 .rules.mt-3.mb-5
@@ -20,9 +20,14 @@
   %h3 Entering the contest
   %p In order to enter the contest, you must have your picture taken by monster bash staff after having received your wrist band. Contestants must stop by the Meeting Haus on Saturday, October 14, after picking up their wristbands, between the hours of 6:45 p.m. and 7:45 p.m. to be photographed. Those who show up too late cannot enter the contest.
   %h3 Voting
-  %p V.grayoting will take place through the GV Monster Bash website. Voting will be open from 8:30 p.m. to 10 p.m.
+  %p Voting will take place through the GV Monster Bash website. Voting will be open from 8:30 p.m. to 10 p.m.
+  %p
+    = "Voters will be voting on the follow categories: best house, scariest costume, funniest costume, best group costume. Entries will be displayed in a random order. For each entry voters will be able to give a thumbs up or a thumbs down. The entry with the highest net score will win."
+    %ul
+      %li= fa_icon 'thumbs-up', text: 'Thumbs up'
+      %li= fa_icon 'thumbs-down', text: 'Thumbs down'
   %h3 Announcing the winners
-  %p At 10:15 p.m. winners will be announced in the Fest Hall. If you are not present during the announcement you forfeit your prize
+  %p At 10:30 p.m. winners will be announced in the Fest Hall. If you are not present during the announcement you forfeit your prize
   %h3 Costume Guidelines
   %p.mb-3 No inappropriate costumes (racist, sexist, homophobic, too revealing, etc.) This is up to the judge’s discretion.
   %p.mb-3 No realistic looking weapons
@@ -32,4 +37,5 @@
 .byline.mb-5
   %h2 Presented by
   = image_tag 'CMM_Logo_800.png', class: 'img-fluid'
+  = image_tag 'gv.png', class: 'img-fluid'
 
